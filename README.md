@@ -9,7 +9,6 @@ A personal playground for implementing and understanding different sorting algor
 ## What's Next?
 
 I might implement:
-- Quick sort
 - Heap sort
 - Radix sort
 - Other algorithms that catch my interest
