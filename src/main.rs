@@ -1,6 +1,7 @@
 mod algorithms;
 mod bench;
 
+use algorithms::heap_sort::heap_sort;
 use algorithms::merge_sort::merge_sort;
 use algorithms::quick_sort::quick_sort;
 use bench::bench_algorithm;
@@ -26,5 +27,11 @@ fn main() {
         |vec| quick_sort(vec, |a, b| a.cmp(&b)),
         1000,
         "My Quick Sort",
+    );
+    bench_algorithm(
+        &vec,
+        |vec| heap_sort(vec, |a, b| a.cmp(&b)),
+        1000,
+        "My Heap Sort",
     );
 }

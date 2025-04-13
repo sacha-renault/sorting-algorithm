@@ -3,12 +3,16 @@ use std::time::{Duration, Instant};
 pub fn bench_algorithm<F, T>(vec: &Vec<T>, sort_fn: F, num: i32, algoname: &str)
 where
     F: Fn(&mut Vec<T>),
-    T: Clone + PartialOrd,
+    T: Clone + PartialOrd + std::fmt::Debug,
 {
     // Ensure algo works :|
     let mut vec_to_sort = vec.clone();
     sort_fn(&mut vec_to_sort);
-    assert!(vec_to_sort.is_sorted());
+    assert!(
+        vec_to_sort.is_sorted(),
+        "Vec is not sorted : {:?}",
+        vec_to_sort
+    );
 
     // Bench time
     let mut acc = Duration::ZERO;
