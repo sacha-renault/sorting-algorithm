@@ -36,10 +36,12 @@ where
 
     // iterate for all element except pivot
     for j in 0..a.len() {
-        if j != pivot_index && matches!(cmp_fn(a[j], pivot), Ordering::Less) {
+        if matches!(cmp_fn(a[j], pivot), Ordering::Less) {
             // moves element that are less than pivot in the begenning of the array
             // Which pushes naturally bigger element to the right
-            a.swap(less_than_pivot, j);
+            if j != pivot_index {
+                a.swap(less_than_pivot, j);
+            }
             less_than_pivot += 1;
         }
     }
